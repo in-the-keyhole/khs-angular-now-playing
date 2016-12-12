@@ -11,7 +11,7 @@ exports.configure = function (api) {
     //});
 
     const apiRouter = express.Router();
-    apiRouter.use(jwtAuth);
+    // apiRouter.use(jwtAuth);
 
     require('./movies/movies').configure(apiRouter);
     require('./auth/auth').configure(api);
