@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {MoviesComponent} from './movies.component';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import {MoviesComponent} from './movies.component';
         MoviesComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        HttpModule
     ],
     providers: [],
     bootstrap: [AppComponent]
