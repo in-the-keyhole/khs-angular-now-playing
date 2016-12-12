@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Movie} from './movie.model';
+import {MovieService} from './movie.service';
 
 @Component({
     selector: 'movies',
@@ -10,24 +11,14 @@ import {Movie} from './movie.model';
                 <li *ngFor="let movie of movies">{{movie.title}}</li>
             </ul>
         </div>
-    `
+    `,
+    providers: [MovieService]
 })
 export class MoviesComponent {
 
     private movies: Movie[];
 
-    constructor() {
-        this.movies = [
-            {
-                id: 1,
-                title: 'The Dark Knight',
-                overview: ''
-            },
-            {
-                id: 2,
-                title: 'Suicide Squad',
-                overview: ''
-            }
-        ];
+    constructor(movieService: MovieService) {
+        this.movies = movieService.nowPlaying();
     }
 }
