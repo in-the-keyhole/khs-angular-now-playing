@@ -10,7 +10,7 @@ import {MovieService} from './movie.service';
             <input type="text" placeholder="Filter..." [(ngModel)]="filterText" (keyup)="applyFilter()"/>
             <ul>
                 <li *ngFor="let movie of filteredMovies">
-                    <img src="/assets/images/posters{{movie.poster_path}}"/>
+                    <movie-poster [movie]="movie"></movie-poster>
                 </li>
             </ul>
         </div>

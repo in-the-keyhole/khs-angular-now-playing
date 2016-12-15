@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {MoviesComponent} from './movies.component';
 import {FormsModule} from '@angular/forms';
+import {MoviePosterComponent} from './movie-poster.component';
 
 @NgModule({
     imports: [
@@ -11,7 +12,8 @@ import {FormsModule} from '@angular/forms';
         FormsModule
     ],
     declarations: [
-        MoviesComponent
+        MoviesComponent,
+        MoviePosterComponent
     ],
     exports: [
         MoviesComponent
