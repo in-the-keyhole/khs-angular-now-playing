@@ -21,7 +21,7 @@ this.nowPlaying = function (req, res) {
 
 this.fetchMovie = function (req, res) {
     var movie = findCachedMovie(+req.params.id);
-    if (movie && movie.id !== 310888) {
+    if (movie && movie.id !== 340666) {
         res.status(200).json(movie);
     } else {
         res.status(404).end();
