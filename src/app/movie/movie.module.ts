@@ -4,12 +4,14 @@ import {HttpModule} from '@angular/http';
 import {MoviesComponent} from './movies.component';
 import {FormsModule} from '@angular/forms';
 import {MoviePosterComponent} from './movie-poster.component';
+import {RatingModule} from '../rating/rating.module';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
-        FormsModule
+        FormsModule,
+        RatingModule
     ],
     declarations: [
         MoviesComponent,

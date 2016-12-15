@@ -11,6 +11,7 @@ import {MovieService} from './movie.service';
             <ul>
                 <li *ngFor="let movie of filteredMovies">
                     <movie-poster [movie]="movie"></movie-poster>
+                    <rating [stars]="movie.rating || 0" (changed)="ratingChanged(movie, $event)"></rating>
                 </li>
             </ul>
         </div>
@@ -37,5 +38,10 @@ export class MoviesComponent implements OnInit {
         this.filteredMovies = this.movies.filter(movie =>
             movie.title.toLowerCase().match(this.filterText.toLowerCase()) != null
         )
+    }
+
+    ratingChanged(movie:Movie, rating:number) {
+        movie.rating = rating;
+        this.movieService.updateMovie(movie).subscribe();
     }
 }

@@ -4,4 +4,5 @@ export class Movie {
     overview: string;
     poster_path: string;
     backdrop_path: string;
+    rating: number;
 }
