@@ -5,17 +5,21 @@ import {MoviesComponent} from './movies.component';
 import {FormsModule} from '@angular/forms';
 import {MoviePosterComponent} from './movie-poster.component';
 import {RatingModule} from '../rating/rating.module';
+import {RouterModule} from '@angular/router';
+import {MovieComponent} from './movie.component';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        RouterModule,
         RatingModule
     ],
     declarations: [
         MoviesComponent,
-        MoviePosterComponent
+        MoviePosterComponent,
+        MovieComponent
     ],
     exports: [
         MoviesComponent

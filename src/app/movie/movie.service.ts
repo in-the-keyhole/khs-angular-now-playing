@@ -16,6 +16,12 @@ export class MovieService {
         )
     }
 
+    movie(id: number): Observable<Movie> {
+        return this.http.get('/api/movies/' + id).map(response =>
+            response.json() as Movie
+        )
+    }
+
     updateMovie(movie: Movie): Observable<Response> {
         let body: string = JSON.stringify(movie);
         let headers: Headers = new Headers({'Content-Type': 'application/json'});

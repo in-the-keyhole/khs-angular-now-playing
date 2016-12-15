@@ -10,7 +10,7 @@ import {MovieService} from './movie.service';
             <input type="text" placeholder="Filter..." [(ngModel)]="filterText" (keyup)="applyFilter()"/>
             <ul>
                 <li *ngFor="let movie of filteredMovies">
-                    <movie-poster [movie]="movie"></movie-poster>
+                    <movie-poster [movie]="movie" [routerLink]="['/movies', movie.id]"></movie-poster>
                     <rating [stars]="movie.rating || 0" (changed)="ratingChanged(movie, $event)"></rating>
                 </li>
             </ul>
