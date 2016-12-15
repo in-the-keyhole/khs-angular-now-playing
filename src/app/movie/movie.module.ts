@@ -7,6 +7,8 @@ import {MoviePosterComponent} from './movie-poster.component';
 import {RatingModule} from '../rating/rating.module';
 import {RouterModule} from '@angular/router';
 import {MovieComponent} from './movie.component';
+import {MovieResolve} from './movie-resolve.service';
+import {MovieService} from './movie.service';
 
 @NgModule({
     imports: [
@@ -23,6 +25,10 @@ import {MovieComponent} from './movie.component';
     ],
     exports: [
         MoviesComponent
+    ],
+    providers: [
+        MovieResolve,
+        MovieService
     ]
 })
 export class MovieModule {

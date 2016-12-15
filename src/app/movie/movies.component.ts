@@ -15,8 +15,7 @@ import {MovieService} from './movie.service';
                 </li>
             </ul>
         </div>
-    `,
-    providers: [MovieService]
+    `
 })
 export class MoviesComponent implements OnInit {
 
@@ -40,7 +39,7 @@ export class MoviesComponent implements OnInit {
         )
     }
 
-    ratingChanged(movie:Movie, rating:number) {
+    ratingChanged(movie: Movie, rating: number) {
         movie.rating = rating;
         this.movieService.updateMovie(movie).subscribe();
     }
