@@ -1,28 +1,25 @@
 <img class="logo" src="/assets/images/logo.gif"/>
 <div class="login-body">
     <div class="login-content">
-        <form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group" *ngIf="errorMessage">
                 <span class="errorMessage">{{errorMessage}}</span>
             </div>
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" class="form-control" required name="username" [(ngModel)]="user.username" #username="ngModel">
-                <div class="input-error" *ngIf="username.errors && (username.dirty || username.touched)">
-                    <span>Username is required</span>
-                </div>
+                <input type="text" id="username" class="form-control" formControlName="username" required>
+                <div *ngIf="formErrors.username" class="input-error">{{ formErrors.username }}</div>
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" required name="password" [(ngModel)]="user.password" #password="ngModel">
-                <div class="input-error" *ngIf="password.errors && (password.dirty || password.touched)">
-                    <span>Password is required</span>
+                <input type="password" id="password" class="form-control" formControlName="password" required>
+                <div *ngIf="formErrors.password" class="input-error">
+                    {{ formErrors.password }}
                 </div>
-
             </div>
 
-            <button type="submit" class="btn btn-default" [disabled]="!loginForm.form.valid">Sign In</button>
+            <button type="submit" class="btn btn-default" [disabled]="!loginForm.valid">Sign In</button>
         </form>
     </div>
 </div>
