@@ -2,6 +2,7 @@ import {Component, OnInit}                  from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {User} from './user.model';
 import {Router} from '@angular/router';
+import {AuthService} from './auth.service';
 
 @Component({
     templateUrl: './login-component.html',
@@ -9,10 +10,11 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+    private errorMessage: string;
     private user: User;
     public loginForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private router: Router) {
+    constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     }
 
     ngOnInit(): void {
@@ -20,11 +22,17 @@ export class LoginComponent implements OnInit {
         this.buildForm();
     }
 
-    onSubmit() {
+    onSubmit(): void {
         this.user = this.loginForm.value;
-        // For now, just log the user
-        console.log('Login for ->', this.user);
-        this.router.navigate(['']);
+        this.authService.authenticate(this.user).subscribe(
+            success => {
+                this.errorMessage = null;
+                this.router.navigate([this.authService.redirectURL || '']);
+            },
+            failure => {
+                this.errorMessage = failure.status === 401 ? 'An invalid username or password was entered.' : 'Something bad happened'
+            }
+        );
     }
 
     buildForm(): void {

@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {LoginModule} from './login/login.module';
 import {MovieModule} from './movie/movie.module';
-import {routing} from './app.routing';
+import {routing, routingProviders} from './app.routing';
 
 @NgModule({
     declarations: [
@@ -15,7 +15,9 @@ import {routing} from './app.routing';
         MovieModule,
         routing
     ],
-    providers: [],
+    providers: [
+        routingProviders
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
