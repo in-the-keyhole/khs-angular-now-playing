@@ -7,5 +7,5 @@ import {Movie} from './movie.model';
 })
 export class MoviePosterComponent {
 
-    @Input() private movie: Movie;
+    @Input() movie: Movie;
 }
