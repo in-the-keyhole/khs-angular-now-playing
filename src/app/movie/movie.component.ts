@@ -15,7 +15,7 @@ import {Movie} from './movie.model';
 })
 export class MovieComponent implements OnInit {
 
-    private movie: Movie;
+    public movie: Movie;
 
     constructor(private route: ActivatedRoute) {
     }

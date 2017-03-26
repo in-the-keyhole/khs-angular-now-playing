@@ -10,7 +10,7 @@ import {AuthService} from './auth.service';
 })
 export class LoginComponent implements OnInit {
 
-    private errorMessage: string;
+    public errorMessage: string;
     private user: User;
     public loginForm: FormGroup;
 

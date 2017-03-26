@@ -22,8 +22,8 @@ import {AuthService} from '../login/auth.service';
 export class MoviesComponent implements OnInit {
 
     private movies: Movie[];
-    private filteredMovies: Movie[];
-    private filterText: string;
+    public filteredMovies: Movie[];
+    public filterText: string;
 
     constructor(private movieService: MovieService, private authService: AuthService) {
     }

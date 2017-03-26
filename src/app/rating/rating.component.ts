@@ -38,7 +38,7 @@ export class RatingComponent {
     @Input() private stars: number;
     @Output() private changed:EventEmitter<number> = new EventEmitter<number>();
 
-    private starClass(ordinal: number): string {
+    public starClass(ordinal: number): string {
         if (this.stars > (ordinal - 1)) {
             return 'fa-star';
         }
